@@ -18,6 +18,5 @@
     "autoload": {
         "psr-0": { "Slot\\MandrillBundle": "" }
     },
-    "target-dir": "Slot/MandrillBundle",
-    "minimum-stability": "stable"
+    "target-dir": "Slot/MandrillBundle"
 }
