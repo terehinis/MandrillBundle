@@ -10,3 +10,4 @@ services:
     slot_mandrill.dispatcher:
         class: "%slot_mandrill.dispatcher.class%"
         arguments: ["@slot_mandrill.client", "%slot_mandrill.default.sender%", "%slot_mandrill.default.sender_name%", "%slot_mandrill.default.subaccount%", "%slot_mandrill.disable_delivery%", "%slot_mandrill.proxy%", "%slot_mandrill.debug%"]
+        public: true
