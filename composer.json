@@ -1,21 +1,10 @@
 {
-    "name": "slot/mandrill-bundle",
+    "name": "terehinis/mandrill-bundle",
     "type": "symfony-bundle",
     "description": "Symfony Mandrill Bundle",
-    "keywords": ["Mandrill", "transaction mail", "transactional", "messages", "email"],
-    "homepage": "https://github.com/slot/SlotMandrillBundle",
+    "keywords": ["Mandrill", "transaction mail", "transactional", "messages", "email", "symfony"],
+    "homepage": "https://github.com/terehinis/MandrillBundle",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Sven Loth",
-            "email": "sven.loth@me.com",
-            "homepage": "http://github.com/slot"
-        },
-        {
-            "name": "Github Community",
-            "homepage": "https://github.com/slot/SlotMandrillBundle/contributors"
-        }
-    ],
     "require": {
         "symfony/http-foundation": ">=2.8",
         "symfony/config": ">=2.8",
@@ -30,5 +19,5 @@
         "psr-0": { "Slot\\MandrillBundle": "" }
     },
     "target-dir": "Slot/MandrillBundle",
-    "minimum-stability": "alpha"
+    "minimum-stability": "stable"
 }
