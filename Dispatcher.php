@@ -101,6 +101,7 @@ class Dispatcher
      *
      * @param Message $message
      * @param string $templateName
+     * @param array $globalVars
      * @param array $templateContent
      * @param bool $async
      * @param string $ipPool
@@ -108,7 +109,7 @@ class Dispatcher
      *
      * @return array|bool
      */
-    public function send(Message $message, $templateName = '', $templateContent = array(), $async = false, $ipPool = null, $sendAt = null)
+    public function send(Message $message, $templateName = '', $globalVars = array(), $templateContent = array(), $async = false, $ipPool = null, $sendAt = null)
     {
         if ($this->disableDelivery) {
             return false;
@@ -116,6 +117,10 @@ class Dispatcher
 
         foreach ($this->globalVars as $globalVar) {
             $message->addGlobalMergeVar($globalVar['name'],$globalVar['content']);
+        }
+
+        foreach ($globalVars as $key => $value) {
+            $message->addGlobalMergeVar($key,$value);
         }
 
         if (strlen($message->getFromEmail()) == 0) {
