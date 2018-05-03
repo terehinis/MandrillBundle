@@ -68,11 +68,18 @@ class Dispatcher
     protected $proxy;
 
     /**
+     * globalVars
+     *
+     * @var array
+     */
+    protected $globalVars;
+
+    /**
      * @var bool
      */
     protected $disableDelivery;
 
-    public function __construct($service, $defaultSender, $defaultSenderName, $subaccount, $disableDelivery, $proxy, $debug = false)
+    public function __construct($service, $defaultSender, $defaultSenderName, $subaccount, $disableDelivery, $proxy, $globalVars = [], $debug = false)
     {
         $this->service = $service;
         $this->defaultSender = $defaultSender;
@@ -80,6 +87,7 @@ class Dispatcher
         $this->subaccount = $subaccount;
         $this->disableDelivery = $disableDelivery;
         $this->proxy = $proxy;
+        $this->globalVars = $globalVars;
 
         $this->service->debug = $debug;
 
@@ -104,6 +112,10 @@ class Dispatcher
     {
         if ($this->disableDelivery) {
             return false;
+        }
+
+        foreach ($this->globalVars as $globalVar) {
+            $message->addGlobalMergeVar($globalVar['name'],$globalVar['content']);
         }
 
         if (strlen($message->getFromEmail()) == 0) {

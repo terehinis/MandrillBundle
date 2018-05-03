@@ -53,6 +53,7 @@ class SlotMandrillExtension extends Extension
         $container->setParameter('slot_mandrill.default.subaccount', $config['default']['subaccount']);
         $container->setParameter('slot_mandrill.proxy', $config['proxy']);
         $container->setParameter('slot_mandrill.debug', $config['debug']);
+        $container->setParameter('slot_mandrill.global_vars', $config['global_vars']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
